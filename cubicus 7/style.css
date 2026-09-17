@@ -410,6 +410,8 @@ footer { border-top: 3px solid var(--accent); }
   .nav-links li { width: 100%; }
   .nav-links a { display: block; padding: 13px 0; font-size: 1.05rem; }
   .nav-links a.active::after { display: none; }
+  .nav-links li:last-child { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 10px; padding-bottom: 6px; }
+  .nav-links .btn { width: 100%; justify-content: center; border-radius: 12px; padding: 13px 20px; box-shadow: none; }
   .nav-toggle { display: block; }
   .services-grid, .how-grid { grid-template-columns: 1fr; }
   .float-cards { position: static; margin-top: 18px; grid-template-columns: 1fr; }

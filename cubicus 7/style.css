@@ -287,6 +287,109 @@ footer a:hover { color: #fff; }
 .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
+/* ---------- Visual enhancements ---------- */
+
+/* Buttons — depth & shadow */
+.btn:not(.ghost):not(.on-dark) { box-shadow: 0 4px 16px rgba(12,140,140,0.22); }
+.btn:not(.ghost):not(.on-dark):hover { box-shadow: 0 8px 28px rgba(12,140,140,0.32); }
+.btn { transition: background 0.25s, transform 0.25s, box-shadow 0.25s; }
+
+/* Focus rings for accessibility */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* Nav scroll shadow (class added by JS) */
+.nav-wrap.scrolled { box-shadow: 0 4px 24px rgba(15,22,20,0.09); }
+
+/* Hero image — premium shadow */
+.hero-side img { box-shadow: 0 40px 80px rgba(15,22,20,0.2), 0 8px 24px rgba(15,22,20,0.1); }
+
+/* Feature band image */
+.feature-media > img { box-shadow: 0 20px 48px rgba(15,22,20,0.12); }
+
+/* Stat cards — top accent + deeper shadow */
+.stat-card { border-top: 3px solid var(--accent); box-shadow: 0 24px 60px rgba(15,22,20,0.16); }
+.stat-card .num { font-size: 2.5rem; }
+
+/* Service cards — accent top bar on hover */
+.service-card {
+  border-top: 3px solid transparent;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s, border-color 0.35s;
+}
+.service-card:hover { border-top-color: var(--accent); box-shadow: 0 24px 48px rgba(15,22,20,0.12); }
+
+/* Staggered service card reveals */
+.services-grid .service-card:nth-child(2) { transition-delay: 0.08s; }
+.services-grid .service-card:nth-child(3) { transition-delay: 0.16s; }
+.services-grid .service-card:nth-child(4) { transition-delay: 0.06s; }
+.services-grid .service-card:nth-child(5) { transition-delay: 0.14s; }
+.services-grid .service-card:nth-child(6) { transition-delay: 0.22s; }
+
+/* How-cards — step watermark + hover lift */
+.how-grid { counter-reset: step-counter; }
+.how-card {
+  position: relative; overflow: hidden;
+  counter-increment: step-counter;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.how-card::after {
+  content: counter(step-counter);
+  position: absolute; bottom: -14px; right: 18px;
+  font-family: var(--font-display); font-size: 7rem; font-weight: 600; line-height: 1;
+  color: rgba(12,140,140,0.07); pointer-events: none; user-select: none;
+}
+.how-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(15,22,20,0.09); }
+.how-grid .how-card:nth-child(2) { transition-delay: 0.1s; }
+.how-grid .how-card:nth-child(3) { transition-delay: 0.2s; }
+
+/* Detail aside — shadow + subtle zoom on hover */
+.detail-aside img {
+  box-shadow: 0 24px 56px rgba(15,22,20,0.14);
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.5s;
+}
+.detail-aside:hover img { transform: scale(1.015); box-shadow: 0 32px 64px rgba(15,22,20,0.18); }
+
+/* Timeline dots — glow ring */
+.timeline-item::before { box-shadow: 0 0 0 5px rgba(12,140,140,0.14); transition: box-shadow 0.3s; }
+.timeline-item:hover::before { box-shadow: 0 0 0 9px rgba(12,140,140,0.18); }
+
+/* Positions row — tinted accent pills */
+.positions-row span {
+  background: rgba(12,140,140,0.07); border-color: rgba(12,140,140,0.22); color: var(--accent-deep);
+  transition: background 0.2s, border-color 0.2s;
+}
+.positions-row span:hover { background: rgba(12,140,140,0.14); border-color: rgba(12,140,140,0.4); cursor: default; }
+
+/* Testimonial — card treatment */
+.testimonial {
+  background: var(--card); border: 1px solid var(--line); border-radius: 28px;
+  padding: clamp(36px,5vw,64px) clamp(28px,5vw,72px);
+  box-shadow: 0 8px 32px rgba(15,22,20,0.06);
+}
+
+/* Stats band — subtle dividers */
+.stats-band > div { position: relative; padding: 20px 12px; border-radius: var(--radius); }
+.stats-band > div:not(:last-child)::after {
+  content: ""; position: absolute; right: 0; top: 15%; bottom: 15%;
+  width: 1px; background: var(--line);
+}
+@media (max-width: 980px) { .stats-band > div::after { display: none; } }
+
+/* CTA — depth shadow */
+.cta-inner { box-shadow: 0 28px 64px rgba(15,22,20,0.2); }
+
+/* Contact cards — hover lift */
+.contact-card { transition: box-shadow 0.3s, transform 0.3s; }
+.contact-card:hover { box-shadow: 0 12px 32px rgba(15,22,20,0.1); transform: translateY(-2px); }
+
+/* Footer — accent top border */
+footer { border-top: 3px solid var(--accent); }
+
+/* Page hero — bottom separator */
+.page-hero { border-bottom: 1px solid var(--line); }
+
+/* Section head — tighter heading margin */
+.section-head h2 { margin-top: 6px; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .hero-grid, .detail-block, .detail-block.flip, .contact-grid { grid-template-columns: 1fr; }

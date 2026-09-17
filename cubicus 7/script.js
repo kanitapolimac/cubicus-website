@@ -1,5 +1,15 @@
 // CUBICUS d.o.o. - shared scripts
 document.addEventListener('DOMContentLoaded', function () {
+  // Nav scroll shadow
+  var navWrap = document.querySelector('.nav-wrap');
+  if (navWrap) {
+    var onScroll = function () {
+      navWrap.classList.toggle('scrolled', window.scrollY > 20);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   // Mobile nav
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
